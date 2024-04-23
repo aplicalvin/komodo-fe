@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { DM_Sans } from "next/font/google";
 import favicon from "@/assets/favicon.png";
+import { NavBar } from "@/components/Navbar";
 
 const dmSans = DM_Sans({
     subsets: ["latin"],
@@ -29,7 +30,11 @@ export default function RootLayout({
                     type="image/x-icon"
                 />
             </head>
-            <body className={dmSans.className}>{children}</body>
+            <body className={dmSans.className}>
+                <NavBar />
+
+                {children}
+            </body>
         </html>
     );
 }
