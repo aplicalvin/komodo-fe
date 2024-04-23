@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { DM_Sans } from "next/font/google";
+import favicon from "@/assets/favicon.png";
 
-const inter = Inter({ subsets: ["latin"] });
+const dmSans = DM_Sans({
+    subsets: ["latin"],
+    display: "swap",
+});
 
 export const metadata: Metadata = {
     title: "Gerbang Suara - #DemokrasiTanpaKeraguan",
@@ -16,7 +21,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            {/* Add Favicon manually */}
+            <head>
+                <link
+                    rel="shortcut icon"
+                    href="@/app/favicon.png"
+                    type="image/x-icon"
+                />
+            </head>
+            <body className={dmSans.className}>{children}</body>
         </html>
     );
 }
